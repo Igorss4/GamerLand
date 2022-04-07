@@ -2,6 +2,8 @@ package org.generation.GamerLand.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.generation.GamerLand.model.Categoria;
 import org.generation.GamerLand.repository.CategoriaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,7 +45,7 @@ public class CategoriaController {
 	}
 	
 	@PostMapping
-	public ResponseEntity<Categoria>post(@RequestBody Categoria categoria){
+	public ResponseEntity<Categoria>post(@Valid @RequestBody Categoria categoria){
 		return ResponseEntity.status(HttpStatus.CREATED).body(repository.save(categoria));
 	}
 	

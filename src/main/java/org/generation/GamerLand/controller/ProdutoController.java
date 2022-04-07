@@ -2,6 +2,8 @@ package org.generation.GamerLand.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.generation.GamerLand.model.Produto;
 import org.generation.GamerLand.repository.ProdutoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,7 +45,7 @@ public class ProdutoController {
 	}
 	
 	@PostMapping
-	public ResponseEntity<Produto>post(@RequestBody Produto produto){
+	public ResponseEntity<Produto>post(@Valid @RequestBody Produto produto){
 		return ResponseEntity.status(HttpStatus.CREATED).body(repository.save(produto));
 	}
 	
